@@ -2,7 +2,17 @@ import { MediaConnection, Peer } from "peerjs";
 import { Phone } from "tabler-icons-react";
 import { useForm } from "@mantine/form";
 import * as React from "react";
-import * from "@mantine/core";
+import {
+  createStyles,
+  ActionIcon,
+  TextInput,
+  Center,
+  Button,
+  Loader,
+  Affix,
+  Text,
+  Box,
+} from "@mantine/core";
 
 type Props = {};
 
