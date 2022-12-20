@@ -1,15 +1,14 @@
 var camAudioStream;
 var list = [];
 var inst = alert("Enter the shared ID");
+var peer = new Peer();
 
 const videoCallBtn = document.getElementById("videoCallBtn");
 const localVideo = document.getElementById("localVideo");
 const remoteVideo = document.getElementById("remoteVideo");
-const humanID = document.getElementById("humanID");
+const peerId = document.getElementById("peerId");
 const msg = document.getElementById("msg");
-let remotePeerId = humanID.value;
 
-var peer = new Peer();
 
 peer.on("call", (call) => {
   navigator.mediaDevices
@@ -31,23 +30,23 @@ peer.on("call", (call) => {
         }
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error("Error--> ", err));
 });
 
 videoCallBtn.addEventListener("click", () => {
+  let remotePeerId = peerId.value;
   callPeer(remotePeerId);
 });
 
-stopVideoCallBtn.addEventListener("click", () => stopVideo());
+stopVideoCallBtn.addEventListener("click", () => {
+  stopVideo();
+});
 
 const callPeer = (id) => {
   navigator.mediaDevices
     .getUserMedia({
       video: true,
-      audio: {
-        echoCancellation: true,
-        noiseSuppression: true,
-      },
+      audio: true,
     })
     .then((stream) => {
       camAudioStream = stream;
@@ -61,7 +60,7 @@ const callPeer = (id) => {
         }
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error("Error--> ", err));
 };
 
 const addRemoteVideo = (remoteStream) => (remoteVideo.srcObject = remoteStream);
