@@ -1,14 +1,5 @@
 import { BrandGithub, MoonStars, Sun } from 'tabler-icons-react';
-import {
-  useMantineColorScheme,
-  createStyles,
-  ActionIcon,
-  Container,
-  Tooltip,
-  Header,
-  Group,
-  Text,
-} from '@mantine/core';
+import { useMantineColorScheme, createStyles, ActionIcon, Container, Tooltip, Header, Group, Text } from '@mantine/core';
 import * as React from 'react';
 
 const useStyles = createStyles({
@@ -34,7 +25,7 @@ export const StyledHeader: React.FC<Props> = (_: Props) => {
         <Group>
           <Tooltip label="Source code">
             <ActionIcon<'a'>
-              href="https://github.com/Aces3141/peerjs-demo"
+              href="https://github.com/Aces3141/webrtc-demo"
               color={dark ? 'gray' : 'dark'}
               variant="hover"
               component="a"
